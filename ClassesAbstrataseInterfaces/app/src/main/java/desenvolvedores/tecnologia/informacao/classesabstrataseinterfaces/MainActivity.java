@@ -1,7 +1,7 @@
 package desenvolvedores.tecnologia.informacao.classesabstrataseinterfaces;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,10 +9,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import desenvolvedores.tecnologia.informacao.classesabstrataseinterfaces.formas.Circunferencia;
-import desenvolvedores.tecnologia.informacao.classesabstrataseinterfaces.formas.Forma;
-import desenvolvedores.tecnologia.informacao.classesabstrataseinterfaces.formas.Retangulo;
-import desenvolvedores.tecnologia.informacao.classesabstrataseinterfaces.formas.Triangulo;
+import desenvolvedores.tecnologia.informacao.classesabstrataseinterfaces.ui.CircunferenciaFrag;
+import desenvolvedores.tecnologia.informacao.classesabstrataseinterfaces.ui.MensagemFragment;
+import desenvolvedores.tecnologia.informacao.classesabstrataseinterfaces.ui.RetanguloFrag;
+import desenvolvedores.tecnologia.informacao.classesabstrataseinterfaces.ui.TrianguloFrag;
 
 /*Java - Guia do Programador - 3ª Edição https://github.com/pjandl/jgp3*/
 
@@ -24,6 +24,7 @@ public class MainActivity extends FragmentActivity implements AdapterView.OnItem
     private static final String TRIANGULO       = "Triângulo";
 
     private Spinner spiOpcoes;
+    private FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,22 +41,50 @@ public class MainActivity extends FragmentActivity implements AdapterView.OnItem
         spiOpcoes.setAdapter(adapterFormas);
         spiOpcoes.setOnItemSelectedListener(this);
 
-
+        fragmentManager = getSupportFragmentManager();
 
 
     }
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        if(adapterView.getItemAtPosition(i).toString().equals(CIRCUNFERENCIA)){
 
+        if(fragmentManager != null)
+            fragmentManager.popBackStack();
+
+        if(adapterView.getItemAtPosition(i).toString().equals(CIRCUNFERENCIA)){
+            if(fragmentManager != null){
+                fragmentManager.beginTransaction()
+                        .replace(R.id.mainFragment, CircunferenciaFrag.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("Circunferência")
+                        .commit();
+            }
 
         } else if(adapterView.getItemAtPosition(i).toString().equals(RETANGULO)){
-
+            if(fragmentManager != null){
+                fragmentManager.beginTransaction()
+                        .replace(R.id.mainFragment, RetanguloFrag.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("Retângulo")
+                        .commit();
+            }
 
         } else if(adapterView.getItemAtPosition(i).toString().equals(TRIANGULO)){
+            if(fragmentManager != null){
+                fragmentManager.beginTransaction()
+                        .replace(R.id.mainFragment, TrianguloFrag.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("Triângulo")
+                        .commit();
+            }
 
-
+        } else {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.mainFragment, MensagemFragment.class, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("MensagemFrag")
+                    .commit();
         }
     }
 

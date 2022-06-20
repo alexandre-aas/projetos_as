@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Formas"
+        android:text="@string/tv_formas"
         app:layout_constraintBottom_toBottomOf="@+id/spiOpcoes"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -39,11 +39,12 @@
 
     <fragment
         android:id="@+id/mainFragment"
+        android:name="desenvolvedores.tecnologia.informacao.classesabstrataseinterfaces.ui.BlankFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spiOpcoes" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

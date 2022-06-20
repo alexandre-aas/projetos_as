@@ -4,10 +4,10 @@ package desenvolvedores.tecnologia.informacao.classesabstrataseinterfaces.formas
 
 public class Retangulo extends Forma {
 
-    public Retangulo(double altura, double largura) {
+    public Retangulo(double base, double altura) {
         super(2); // uso obrigatório do construtor da superclasse
-        setMedida(0, altura); // ajuste da medida da altura
-        setMedida(1, largura); // ajuste da medida da largura
+        setMedida(0, base); // ajuste da medida da altura
+        setMedida(1, altura); // ajuste da medida da largura
     }
 
     // implementação do método abstrato area()
