@@ -1,4 +1,4 @@
-package desenvolvedores.tecnologia.informacao.classesabstrataseinterfaces;
+package desenv.ti.conceitosmor;
 
 import org.junit.Test;
 
@@ -13,6 +13,5 @@ public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
-
     }
 }
