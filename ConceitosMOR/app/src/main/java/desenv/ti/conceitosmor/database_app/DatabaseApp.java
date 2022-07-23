@@ -4,16 +4,35 @@ import android.content.Context;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import java.util.concurrent.Executors;
 
+import desenv.ti.conceitosmor.database_app.converter.Converters;
+import desenv.ti.conceitosmor.database_app.interfaces_dao.ICRUDAlunoDAO;
+import desenv.ti.conceitosmor.database_app.tabelas.Aluno;
+import desenv.ti.conceitosmor.database_app.tabelas.AlunoProva;
+import desenv.ti.conceitosmor.database_app.tabelas.Pergunta;
+import desenv.ti.conceitosmor.database_app.tabelas.Prova;
+import desenv.ti.conceitosmor.database_app.tabelas.Resposta;
+
+@Database(entities = {Aluno.class, Prova.class
+        , AlunoProva.class, Pergunta.class
+        , Resposta.class}
+        , exportSchema = false
+        , version = 1)
+@TypeConverters({Converters.class})
 public abstract class DatabaseApp extends RoomDatabase {
     private static final String     TAG = "DatabaseApp";
     private static final String DB_NAME = "db_app.db";
     private static volatile DatabaseApp sInstance;
+
+    //Definição dos atributos de classe das nas interfaces DAO
+    public abstract ICRUDAlunoDAO alunosDAO();
 
     public DatabaseApp() {}
 

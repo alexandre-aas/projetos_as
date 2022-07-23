@@ -8,15 +8,14 @@ import androidx.room.PrimaryKey;
 import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(tableName = "tbl_aluno_prova"
-    , indices = {@Index(value = {"idAluno"}), @Index(value = {"idProva"})}
-    , foreignKeys = {@ForeignKey(entity = Aluno.class, parentColumns = "id",
+        , primaryKeys = {"idAluno", "idProva"}
+        , indices = {@Index(value = {"idAluno"}), @Index(value = {"idProva"})}
+        , foreignKeys = {@ForeignKey(entity = Aluno.class, parentColumns = "id",
             childColumns = "idAluno", onUpdate = CASCADE, onDelete = CASCADE)
                     , @ForeignKey(entity = Prova.class, parentColumns = "id",
                             childColumns = "idProva", onUpdate = CASCADE, onDelete = CASCADE)})
 public class AlunoProva {
-    @PrimaryKey
     private int idAluno;
-    @PrimaryKey
     private int idProva;
 
     public AlunoProva() {}
