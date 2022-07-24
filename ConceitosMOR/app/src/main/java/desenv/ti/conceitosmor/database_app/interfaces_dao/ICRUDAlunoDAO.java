@@ -27,7 +27,7 @@ public interface ICRUDAlunoDAO {
 
     @Transaction
     @Update(entity = Aluno.class, onConflict = OnConflictStrategy.REPLACE)
-    public void updateCadastroLembrete(Aluno alunoTable);
+    public void updateAlunos(Aluno alunoTable);
 
     //O CASCADE deverá funcionar aqui p/ a tabela: AlunoProva
     @Transaction

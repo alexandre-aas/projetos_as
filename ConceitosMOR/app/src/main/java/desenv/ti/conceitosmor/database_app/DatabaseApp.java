@@ -14,6 +14,7 @@ import java.util.concurrent.Executors;
 
 import desenv.ti.conceitosmor.database_app.converter.Converters;
 import desenv.ti.conceitosmor.database_app.interfaces_dao.ICRUDAlunoDAO;
+import desenv.ti.conceitosmor.database_app.interfaces_dao.ICRUDProvaDAO;
 import desenv.ti.conceitosmor.database_app.tabelas.Aluno;
 import desenv.ti.conceitosmor.database_app.tabelas.AlunoProva;
 import desenv.ti.conceitosmor.database_app.tabelas.Pergunta;
@@ -31,8 +32,9 @@ public abstract class DatabaseApp extends RoomDatabase {
     private static final String DB_NAME = "db_app.db";
     private static volatile DatabaseApp sInstance;
 
-    //Definição dos atributos de classe das nas interfaces DAO
+    //Definição dos atributos de classe das interfaces DAO
     public abstract ICRUDAlunoDAO alunosDAO();
+    public abstract ICRUDProvaDAO provasDAO();
 
     public DatabaseApp() {}
 
@@ -69,3 +71,8 @@ public abstract class DatabaseApp extends RoomDatabase {
 
     };
 }
+
+/*
+* Como acessar dados usando DAOs do Room
+* https://developer.android.com/training/data-storage/room/accessing-data
+* */
