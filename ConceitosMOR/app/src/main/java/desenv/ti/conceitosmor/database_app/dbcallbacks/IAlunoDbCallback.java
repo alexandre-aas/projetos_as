@@ -5,5 +5,5 @@ import java.util.List;
 import desenv.ti.conceitosmor.database_app.tabelas.Aluno;
 
 public interface IAlunoDbCallback {
-    public void getAlunoFromDB(List<Aluno> tblAluno);
+    void getAlunoFromDB(List<Aluno> tblAluno);
 }
