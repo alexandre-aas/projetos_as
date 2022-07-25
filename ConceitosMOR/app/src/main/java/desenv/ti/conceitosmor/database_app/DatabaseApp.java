@@ -14,7 +14,10 @@ import java.util.concurrent.Executors;
 
 import desenv.ti.conceitosmor.database_app.converter.Converters;
 import desenv.ti.conceitosmor.database_app.interfaces_dao.ICRUDAlunoDAO;
+import desenv.ti.conceitosmor.database_app.interfaces_dao.ICRUDAlunoProvaDAO;
+import desenv.ti.conceitosmor.database_app.interfaces_dao.ICRUDPerguntaDAO;
 import desenv.ti.conceitosmor.database_app.interfaces_dao.ICRUDProvaDAO;
+import desenv.ti.conceitosmor.database_app.interfaces_dao.ICRUDRespostaDAO;
 import desenv.ti.conceitosmor.database_app.tabelas.Aluno;
 import desenv.ti.conceitosmor.database_app.tabelas.AlunoProva;
 import desenv.ti.conceitosmor.database_app.tabelas.Pergunta;
@@ -35,6 +38,9 @@ public abstract class DatabaseApp extends RoomDatabase {
     //Definição dos atributos de classe das interfaces DAO
     public abstract ICRUDAlunoDAO alunosDAO();
     public abstract ICRUDProvaDAO provasDAO();
+    public abstract ICRUDAlunoProvaDAO alunoProvaDAO();
+    public abstract ICRUDPerguntaDAO perguntasDAO();
+    public abstract ICRUDRespostaDAO respostasDAO();
 
     public DatabaseApp() {}
 
